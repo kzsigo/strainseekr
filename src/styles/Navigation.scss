@@ -1,0 +1,13 @@
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  .logoDiv {
+    width: 180px;
+    img {
+      width: 100%;
+    }
+  }
+}

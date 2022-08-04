@@ -1,0 +1,38 @@
+.landing {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  .head-title {
+    margin-top: 80px;
+    h1 {
+      color: #383d3b;
+      font-weight: 500;
+    }
+  }
+  .username-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 60px;
+    .MuiFormControl-root {
+      width: 90%;
+      border-radius: 10px;
+      .MuiOutlinedInput-notchedOutline {
+        border-radius: 10px;
+        border: 2px solid rgb(192, 192, 192);
+      }
+    }
+    .submitUserName {
+      width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
+  }
+}

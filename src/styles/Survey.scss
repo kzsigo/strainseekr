@@ -1,0 +1,54 @@
+.main-survey {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1400px;
+  .survey {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+  }
+}
+.answers {
+  border-radius: 10px;
+  border: 3px solid rgb(192, 192, 192);
+  padding: 20px 20px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #383d3b;
+
+  .choice-icon {
+    height: 50px;
+    img {
+      height: 100%;
+    }
+  }
+}
+.questionButtons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 40px;
+  font-weight: 600;
+}
+
+.bottom-links {
+  width: 100%;
+  margin-bottom: 50px;
+}

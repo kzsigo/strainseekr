@@ -1,0 +1,53 @@
+.client-list {
+  text-align: center;
+  h3 {
+    color: rgb(142, 142, 142);
+  }
+}
+
+.refresh {
+  button {
+    background-color: #b86f52;
+    margin-top: 40px;
+  }
+}
+
+.tableRow {
+  &:hover {
+    background-color: #53a57d;
+    color: #ffffff !important;
+    th,
+    td {
+      color: #ffffff !important;
+    }
+  }
+}
+
+.divModal {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.endModal {
+  overflow: scroll;
+  margin-top: 20px;
+  border-radius: 20px;
+  padding: 20px 0;
+}
+
+.funModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  .elementDiv {
+    border: 2px solid #d5d5d5;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+  }
+}

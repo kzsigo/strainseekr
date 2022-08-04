@@ -1,0 +1,45 @@
+@import "./Navigation.scss";
+@import "./Pages.scss";
+@import "./Cards.scss";
+@import "./Landing.scss";
+@import "./Choices.scss";
+@import "./TastesSmells.scss";
+@import "./Survey.scss";
+@import "./Budtender.scss";
+
+.pages {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+a {
+  text-decoration: none;
+}
+h3 {
+  color: #383d3b !important;
+}
+
+.iconBTN {
+  background-color: #b86f52 !important;
+  color: #ffffff !important;
+}
+
+.box-shadow {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+  -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+  -moz-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px !important;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px !important;
+    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px !important;
+  }
+}
+
+.css-1q1u3t4-MuiTableRow-root {
+  background-color: #b86f52 !important;
+  th {
+    color: #ffffff !important;
+  }
+}
