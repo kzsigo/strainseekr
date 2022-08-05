@@ -10,6 +10,7 @@ const Landing = ({
   setUserName,
   setSecondImportant,
   setThirdImportant,
+  setMostImportant,
 }) => {
   return (
     <div className="landing">
