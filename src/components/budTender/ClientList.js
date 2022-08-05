@@ -66,6 +66,7 @@ const ClientList = () => {
                 <TableRow
                   key={index}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  className="tableRow"
                   onClick={() => {
                     setUserID(d.SearchID);
                     const searchId = d.SearchID;
