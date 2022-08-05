@@ -28,21 +28,23 @@
   display: flex;
   align-items: center;
   justify-items: center;
+  height: 100%;
 }
 
 .endModal {
   overflow: scroll;
   margin-top: 20px;
   border-radius: 20px;
-  padding: 20px 0;
+  height: 600px;
 }
 
 .funModal {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 20px;
+  border-top: 2px solid grey !important;
 
   .elementDiv {
     border: 2px solid #d5d5d5;
@@ -50,4 +52,10 @@
     border-radius: 10px;
     padding: 10px;
   }
+}
+
+.css-4xkvzf {
+  overflow: scroll;
+  height: 600px;
+  margin-bottom: 30px;
 }

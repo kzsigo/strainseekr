@@ -155,7 +155,11 @@ const SurveyPost = ({
         style={{ marginTop: "40px" }}
         variant="contained"
         color="success"
-        onClick={handleAPI}
+        disabled={strainAnswered}
+        onClick={() => {
+          handleAPI();
+          setStrainAnswered(true);
+        }}
       >
         Submit Request
       </Button>

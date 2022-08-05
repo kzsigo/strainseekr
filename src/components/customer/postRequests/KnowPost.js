@@ -92,9 +92,7 @@ const KnowPost = ({
         }}
       >
         <h3>Thank you, {userName}!</h3>
-        <p style={{ marginTop: "40px" }}>
-          Please hit submit for the Bud Tender
-        </p>
+        <p style={{ marginTop: "40px" }}>Please hit submit for your results</p>
       </div>
       <Button
         style={{ marginTop: "40px" }}
