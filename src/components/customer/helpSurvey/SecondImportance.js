@@ -31,7 +31,7 @@ const SecondImportance = ({
     } else if (secondImportant === "" && thirdImportant === "WeightingSmell") {
       return "/smell-choices";
     } else {
-      return "/smell-choices";
+      return "/dominance";
     }
   };
 

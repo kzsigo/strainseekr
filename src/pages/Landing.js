@@ -8,7 +8,6 @@ import Bounce from "react-reveal/Bounce";
 const Landing = ({
   userName,
   setUserName,
-  setMostImportant,
   setSecondImportant,
   setThirdImportant,
 }) => {

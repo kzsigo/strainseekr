@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 
-const TwoChoices = ({ userName, setMostImportant, setSecondImportant }) => {
+const TwoChoices = ({
+  userName,
+  setMostImportant,
+  setSecondImportant,
+  setThirdImportant,
+}) => {
   const handleCleared = () => {
     setMostImportant("");
     setSecondImportant("");

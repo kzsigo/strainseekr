@@ -75,7 +75,7 @@ const IndividualClient = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {data &&
+              {data.length > 0 ? (
                 data.map((p, index) => (
                   <TableRow
                     key={index}
@@ -107,7 +107,23 @@ const IndividualClient = () => {
                       {p.StrainScore.toFixed(8)}
                     </TableCell>
                   </TableRow>
-                ))}
+                ))
+              ) : (
+                <TableRow
+                  key={index}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  className="tableRow"
+                >
+                  {" "}
+                  <TableCell component="th" scope="row">
+                    <p>0</p>
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    No Surveys
+                  </TableCell>
+                  <TableCell align="left">No Surveys</TableCell>
+                </TableRow>
+              )}
             </TableBody>
           </Table>
         </TableContainer>

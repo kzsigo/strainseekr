@@ -4,7 +4,12 @@ import Button from "@mui/material/Button";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { surveyImportance } from "../../../endpoints";
 
-const MostImportant = ({ setMostImportant, mostImportant }) => {
+const MostImportant = ({
+  setMostImportant,
+  mostImportant,
+  setSecondImportant,
+  setThirdImportant,
+}) => {
   const [oneAnswered, setOneAnswered] = useState(false);
 
   const pickMostImportant = () => {
@@ -30,6 +35,8 @@ const MostImportant = ({ setMostImportant, mostImportant }) => {
             className="answers"
             onClick={() => {
               setMostImportant(option.value);
+              setSecondImportant("");
+              setThirdImportant("");
               setOneAnswered(true);
             }}
             style={
