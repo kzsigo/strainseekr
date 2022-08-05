@@ -135,7 +135,16 @@ const SurveyPost = ({
     >
       {success ? (
         <Alert severity="success">
-          #{surveyNumber} Your submission was successful!
+          Your submission was successful! Your Budtender will have your results
+          ready for you. Simply provide them with your nickname,{" "}
+          <span style={{ fontWeight: "700", textDecoration: "underline" }}>
+            {userName}
+          </span>
+          . Or submission number,{" "}
+          <span style={{ fontWeight: "700", textDecoration: "underline" }}>
+            #{surveyNumber}
+          </span>
+          <h3>Thank you for using Strain Seekr!</h3>
         </Alert>
       ) : (
         ""
@@ -146,9 +155,9 @@ const SurveyPost = ({
           textAlign: "center",
         }}
       >
-        <h3>Thank you, {userName}!</h3>
+        <h3>Great job, {userName}!</h3>
         <p style={{ marginTop: "40px" }}>
-          Please hit submit for the Bud Tender
+          Please hit submit so the Budtender can view your results
         </p>
       </div>
       <Button

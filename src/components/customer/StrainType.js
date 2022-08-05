@@ -46,7 +46,7 @@ const StrainType = ({
 
   return (
     <div className="main-survey">
-      <h3>Choose a Strain:</h3>
+      <h3>Choose a Product Type:</h3>
       <div>
         {isLoading ? (
           <Backdrop

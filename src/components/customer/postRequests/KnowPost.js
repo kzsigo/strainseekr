@@ -91,8 +91,10 @@ const KnowPost = ({
           textAlign: "center",
         }}
       >
-        <h3>Thank you, {userName}!</h3>
-        <p style={{ marginTop: "40px" }}>Please hit submit for your results</p>
+        <h3>Thank you!</h3>
+        <p style={{ marginTop: "40px" }}>
+          Hit submit to instantly view your results.
+        </p>
       </div>
       <Button
         style={{ marginTop: "40px" }}

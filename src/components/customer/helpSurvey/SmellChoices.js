@@ -64,7 +64,7 @@ const SmellChoices = ({
   };
   return (
     <div className="main-survey">
-      <h3>Choose a Smell:</h3>
+      <h3>Select a Desired Smell:</h3>
       <div>
         {isLoading ? (
           <Backdrop

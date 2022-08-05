@@ -9,7 +9,7 @@ export const config = {
 };
 
 export const surveyImportance = [
-  { question: "How it Makes Me Feel", value: "WeightingProperty" },
-  { question: "How it Tastes", value: "WeightingTaste" },
-  { question: "How it Smells", value: "WeightingSmell" },
+  { question: "Improving My Condition", value: "WeightingProperty" },
+  { question: "How the Product Tastes", value: "WeightingTaste" },
+  { question: "How the Product Smells", value: "WeightingSmell" },
 ];

@@ -47,9 +47,15 @@ const SecondImportance = ({
 
   return (
     <div className="main-survey">
-      <h3 style={{ textAlign: "center", margin: "20px 20px 0 20px" }}>
-        You stated the you care about {wordsImportant()}, do you care about
-        anything else?
+      <h3
+        style={{
+          textAlign: "center",
+          margin: "20px 20px 0 20px",
+          fontWeight: "500",
+        }}
+      >
+        Now that we know what you're looking for {wordsImportant()}. Do you want
+        us to take anything else into consideration?
       </h3>
       <p></p>
       {
@@ -70,6 +76,7 @@ const SecondImportance = ({
                     : {
                         border: "3px solid rgb(192, 192, 192)",
                         color: "#383d3b",
+                        fontWeight: "500",
                       }
                 }
                 onClick={() => {
@@ -109,7 +116,11 @@ const SecondImportance = ({
                     backgroundColor: "#53a57d",
                     color: "#ffffff",
                   }
-                : { border: "3px solid rgb(192, 192, 192)", color: "#383d3b" }
+                : {
+                    border: "3px solid rgb(192, 192, 192)",
+                    color: "#383d3b",
+                    fontWeight: "500",
+                  }
             }
             onClick={() => {
               setSecondImportant("");

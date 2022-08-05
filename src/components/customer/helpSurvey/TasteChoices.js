@@ -65,7 +65,7 @@ const TasteChoices = ({
 
   return (
     <div className="main-survey">
-      <h3>Choose a Taste:</h3>
+      <h3>Select a Desired Taste:</h3>
       <div>
         {isLoading ? (
           <Backdrop

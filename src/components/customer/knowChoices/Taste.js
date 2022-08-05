@@ -28,6 +28,24 @@ const Taste = ({ tasteChoice, setTasteChoice }) => {
 
   return (
     <div>
+      <div
+        className="titleText"
+        style={{ textAlign: "center", padding: "10px" }}
+      >
+        <h3>
+          Sort by{" "}
+          <span style={{ fontWeight: "bold", textDecoration: "underline" }}>
+            "Taste":
+          </span>
+        </h3>
+        <p>
+          Select a{" "}
+          <span style={{ fontWeight: "bold", textDecoration: "underline" }}>
+            "Taste"
+          </span>{" "}
+          to find the product with the your preferred Taste
+        </p>
+      </div>
       {isLoading ? (
         <Backdrop
           sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}

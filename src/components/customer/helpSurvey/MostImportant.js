@@ -25,9 +25,9 @@ const MostImportant = ({
   };
 
   return (
-    <div className="main-survey">
-      <h3>What do you care about the most?</h3>
-      <p>None of your responses will be shared</p>
+    <div className="main-survey" style={{ textAlign: "center" }}>
+      <h3>What matters the most to you when you choose a product?</h3>
+      <p>This will help us find the very best product for you</p>
       <div className="survey">
         {surveyImportance.map((option, index) => (
           <div

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ChoiceKnow = () => {
   return (
     <div className="choice-know">
-      <h3>What is most important to you?</h3>
+      <h3>Which category would you like to sort by?</h3>
       <div className="pick-know">
         <Link to="/terpene">
           <div className="knowBoxes">

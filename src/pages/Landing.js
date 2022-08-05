@@ -19,16 +19,20 @@ const Landing = ({
           <h1 className="welcome">Welcome to StrainSeekr</h1>
         </div>
       </Bounce>
+      <p className="inputUsername">
+        Please enter a nickname, this will only be used by the Budtender to
+        identify your search results
+      </p>
       <div className="username-input">
         <TextField
           id="outlined-basic"
           error={userName.length === 1}
-          label="Enter a readable Username"
+          label="Please enter a nickname"
           variant="outlined"
           helperText={
             userName.length !== 1
               ? "**For privacy, please do not enter any personal name"
-              : "Username must be greater than one letter!!!"
+              : "Nickname must be greater than one letter!!!"
           }
           size="medium"
           onChange={(e) => setUserName(e.target.value)}

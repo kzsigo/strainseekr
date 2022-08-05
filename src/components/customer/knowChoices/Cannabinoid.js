@@ -29,6 +29,24 @@ const Cannabinoid = ({ cannabinoid, setCannabinoid }) => {
   console.log(cannabinoid);
   return (
     <div>
+      <div
+        className="titleText"
+        style={{ textAlign: "center", padding: "10px" }}
+      >
+        <h3>
+          Sort by{" "}
+          <span style={{ fontWeight: "bold", textDecoration: "underline" }}>
+            "Cannabinoid":
+          </span>
+        </h3>
+        <p>
+          Select a{" "}
+          <span style={{ fontWeight: "bold", textDecoration: "underline" }}>
+            “Cannabinoid”
+          </span>{" "}
+          to find the product with the highest % of that cannabinoid
+        </p>
+      </div>
       {isLoading ? (
         <Backdrop
           sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}

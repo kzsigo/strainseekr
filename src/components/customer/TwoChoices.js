@@ -15,10 +15,10 @@ const TwoChoices = ({
   };
 
   return (
-    <div className="two-choices">
+    <div className="two-choices" style={{ textAlign: "center" }}>
       <h3>Thank you, {userName}</h3>
-      <h3>Please Pick One:</h3>
-      <div className="boxes">
+      <p>How would you like to find the perfect product today?</p>
+      <div className="boxes" style={{ marginTop: "60px" }}>
         <Link to="/survey">
           <div className="two-box-choice">
             <div className="circle-choice">
@@ -26,7 +26,7 @@ const TwoChoices = ({
             </div>
 
             <div className="choice-text">
-              <p>Help for specific feeling or need?</p>
+              <p>Let our experts guide you through the process!</p>
             </div>
           </div>
         </Link>
@@ -37,7 +37,7 @@ const TwoChoices = ({
               <ThumbUpOffAltIcon />
             </div>
             <div className="choice-text">
-              <p>Already know what to look for?</p>
+              <p>Sort inventory by Taste or Compound</p>
             </div>
           </div>
         </Link>

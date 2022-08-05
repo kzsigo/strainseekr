@@ -67,9 +67,26 @@ const NeedChoices = ({
 
   return (
     <div className="main-survey">
-      <h3>You stated that you are searching for relief:</h3>
-      <p style={{ textAlign: "center" }}>
-        By selecting a condition, your options will become more accurate.
+      <h3
+        style={{
+          padding: "10px",
+          textAlign: "center",
+        }}
+      >
+        You stated that you are searching for relief:
+      </h3>
+      <p
+        style={{
+          textAlign: "center",
+          color: "red",
+          fontSize: "12px",
+          padding: "20px",
+        }}
+      >
+        **Note: This is not a cure, and does not suffice as a medical
+        examination. There is no guarantee that selecting a Condition set below
+        will address that condition. This is for entertainment purposes only.
+        Always seek medical advice prior to using cannabis
       </p>
 
       <div>

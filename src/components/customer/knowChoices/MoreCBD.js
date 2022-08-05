@@ -33,7 +33,9 @@ const MoreCBD = ({ cbdLevels, setCbdLevels, mostImportant }) => {
 
   return (
     <div className="percents">
-      <h3>What is the min level of CBD?</h3>
+      <h3 style={{ fontWeight: "500" }}>
+        If you would like, choose a minimum level of CBD:
+      </h3>
       <div className="percentage-div">
         <FormControl sx={{ m: 1, minWidth: 120 }}>
           <InputLabel id="demo-controlled-open-select-label">Min</InputLabel>

@@ -12,7 +12,8 @@ import TableSortLabel from "@mui/material/TableSortLabel";
 const KnowResponse = ({ userName, selections }) => {
   return (
     <div>
-      <h3>Responses</h3>
+      <h3>Here are your results:</h3>
+      <p>*sorted from highest concentration to lowest”</p>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 400 }} aria-label="simple table">
           <TableHead>

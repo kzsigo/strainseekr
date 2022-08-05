@@ -29,7 +29,8 @@ const Dominance = ({ dominance, setDominance, setStrainType, strainType }) => {
 
   return (
     <div className="main-survey">
-      <h3>Choose a Dominance:</h3>
+      <h3>Choose Dominance:</h3>
+      <p>*Balanced = 1:1*</p>
       <div>
         {isLoading ? (
           <Backdrop

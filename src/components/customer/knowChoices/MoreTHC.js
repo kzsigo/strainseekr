@@ -32,8 +32,10 @@ const MoreTHC = ({ thcLevels, setThcLevels, mostImportant }) => {
   };
 
   return (
-    <div className="percents">
-      <h3>What is the min level of THC?</h3>
+    <div className="percents" style={{ fontWeight: "500" }}>
+      <h3 style={{ fontWeight: "500" }}>
+        If you would like, choose a minimum level of THC:
+      </h3>
       <div className="percentage-div">
         <FormControl sx={{ m: 1, minWidth: 120 }}>
           <InputLabel id="demo-controlled-open-select-label">Min</InputLabel>
