@@ -18,6 +18,8 @@ const NeedChoices = ({
   const [data, setData] = useState([]);
   const [conditionAnswered, setConditionAnswered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [keyword, setKeyword] = useState("");
+  const [foundConditions, setFoundConditions] = useState(data);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,11 +27,16 @@ const NeedChoices = ({
       const result = await axios(`${api}/condition`, config);
 
       setData(result.data);
+      setFoundConditions(result.data);
       setIsLoading(false);
     };
 
     fetchData();
   }, []);
+
+  const searchTerm = (keyword) => (need) => {
+    need.Condition.toLowerCase().includes(keyword);
+  };
 
   const completeFunction = () => {
     if (mostImportant === "WeightingProperty") {
@@ -56,14 +63,25 @@ const NeedChoices = ({
     }
   };
 
-  console.log(
-    "Most Import: ",
-    mostImportant,
-    "Second Import: ",
-    secondImportant,
-    "Third Import: ",
-    thirdImportant
-  );
+  const filter = (e) => {
+    setKeyword(e.target.value);
+
+    if (keyword !== "") {
+      const results = data.filter((c) => {
+        return c.Condition.toLowerCase().includes(keyword.toLowerCase());
+        // Use the toLowerCase() method to make it case-insensitive
+      });
+      setFoundConditions(results);
+    } else {
+      const resulter = data.filter((c) => {
+        return c.Condition.toLowerCase().includes("i");
+        // Use the toLowerCase() method to make it case-insensitive
+      });
+      setFoundConditions(resulter);
+    }
+  };
+
+  console.log("Keyword: ", keyword);
 
   return (
     <div className="main-survey">
@@ -91,6 +109,23 @@ const NeedChoices = ({
       </p>
 
       <div>
+        <div className="searching">
+          {/* <LocalSearch keyword={keyword} setKeyword={setKeyword} /> */}
+          <input
+            type="search"
+            value={keyword}
+            onChange={filter}
+            className="input"
+            placeholder="Search for a Specific Condition"
+            style={{
+              border: "2px solid #e0e0e0",
+              borderRadius: "8px",
+              padding: "10px 15px",
+              width: "250px",
+            }}
+          />
+        </div>
+
         {isLoading ? (
           <Backdrop
             sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
@@ -100,30 +135,34 @@ const NeedChoices = ({
           </Backdrop>
         ) : (
           <div className="survey">
-            {data.map((need, index) => (
-              <div
-                key={index}
-                className="answers"
-                onClick={() => {
-                  setCondition(need.ConditionID);
-                  setConditionAnswered(true);
-                }}
-                style={
-                  condition === need.ConditionID
-                    ? {
-                        border: "3px solid #53a57d",
-                        backgroundColor: "#53a57d",
-                        color: "#ffffff",
-                      }
-                    : {
-                        border: "3px solid rgb(192, 192, 192)",
-                        color: "#383d3b",
-                      }
-                }
-              >
-                {need.Condition}
-              </div>
-            ))}
+            {foundConditions && foundConditions.length > 0 ? (
+              foundConditions.map((need) => (
+                <div
+                  key={need.ConditionID}
+                  className="answers"
+                  onClick={() => {
+                    setCondition(need.ConditionID);
+                    setConditionAnswered(true);
+                  }}
+                  style={
+                    condition === need.ConditionID
+                      ? {
+                          border: "3px solid #53a57d",
+                          backgroundColor: "#53a57d",
+                          color: "#ffffff",
+                        }
+                      : {
+                          border: "3px solid rgb(192, 192, 192)",
+                          color: "#383d3b",
+                        }
+                  }
+                >
+                  {need.Condition}
+                </div>
+              ))
+            ) : (
+              <h1>No Results Found</h1>
+            )}
           </div>
         )}
       </div>
