@@ -8,7 +8,13 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CircularProgress from "@mui/material/CircularProgress";
 
-const Dominance = ({ dominance, setDominance, setStrainType, strainType }) => {
+const Dominance = ({
+  mostImportant,
+  dominance,
+  setDominance,
+  setStrainType,
+  strainType,
+}) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [dominanceAnswered, setDominanceAnswered] = useState(false);
@@ -25,7 +31,13 @@ const Dominance = ({ dominance, setDominance, setStrainType, strainType }) => {
     fetchData();
   }, []);
 
-  console.log(dominance);
+  const linker = () => {
+    if (mostImportant === "") {
+      return "/know-post";
+    } else {
+      return "/strains";
+    }
+  };
 
   return (
     <div className="main-survey">
@@ -77,7 +89,7 @@ const Dominance = ({ dominance, setDominance, setStrainType, strainType }) => {
               <ArrowBackIcon /> Back
             </Button>
           </Link>
-          <Link to="/strains" disabled={dominanceAnswered}>
+          <Link to={linker()} disabled={dominanceAnswered}>
             <Button aria-label="delete" className="iconBTN">
               Next <ArrowForwardIcon />
             </Button>

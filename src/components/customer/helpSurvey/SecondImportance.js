@@ -54,8 +54,8 @@ const SecondImportance = ({
           fontWeight: "500",
         }}
       >
-        Now that we know what you're looking for {wordsImportant()}. Do you want
-        us to take anything else into consideration?
+        Now that we know what you're looking for, do you want us to take
+        anything else into consideration?
       </h3>
       <p></p>
       {

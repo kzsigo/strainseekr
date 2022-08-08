@@ -12,6 +12,7 @@ const TwoChoices = ({
   const handleCleared = () => {
     setMostImportant("");
     setSecondImportant("");
+    setThirdImportant("");
   };
 
   return (
@@ -26,7 +27,7 @@ const TwoChoices = ({
             </div>
 
             <div className="choice-text">
-              <p>Let our experts guide you through the process!</p>
+              <p>Let our experts guide you!</p>
             </div>
           </div>
         </Link>
@@ -37,7 +38,7 @@ const TwoChoices = ({
               <ThumbUpOffAltIcon />
             </div>
             <div className="choice-text">
-              <p>Sort inventory by Taste or Compound</p>
+              <p>Sort inventory by Taste, Smell, or Compound</p>
             </div>
           </div>
         </Link>

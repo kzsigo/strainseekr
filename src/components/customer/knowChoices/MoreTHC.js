@@ -23,14 +23,6 @@ const MoreTHC = ({ thcLevels, setThcLevels, mostImportant }) => {
     setMinOpen(true);
   };
 
-  const sendLinks = () => {
-    if (mostImportant !== "") {
-      return "/survey-post";
-    } else {
-      return "/know-post";
-    }
-  };
-
   return (
     <div className="percents" style={{ fontWeight: "500" }}>
       <h3 style={{ fontWeight: "500" }}>
@@ -64,7 +56,7 @@ const MoreTHC = ({ thcLevels, setThcLevels, mostImportant }) => {
               <ArrowBackIcon /> Back
             </Button>
           </Link>
-          <Link to={sendLinks()}>
+          <Link to="/survey-post">
             <Button aria-label="delete" className="iconBTN">
               Next <ArrowForwardIcon />
             </Button>

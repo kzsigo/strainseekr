@@ -3,10 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { api, config } from "../../endpoints";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -75,7 +73,7 @@ const IndividualClient = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {data.length > 0 ? (
+              {data.length &&
                 data.map((p, index) => (
                   <TableRow
                     key={index}
@@ -104,25 +102,10 @@ const IndividualClient = () => {
                       {p.Strain}
                     </TableCell>
                     <TableCell align="left">
-                      {p.StrainScore.toFixed(8)}
+                      {p.StrainScore.toFixed(0)}
                     </TableCell>
                   </TableRow>
-                ))
-              ) : (
-                <TableRow
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  className="tableRow"
-                >
-                  {" "}
-                  <TableCell component="th" scope="row">
-                    <p>0</p>
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    No Surveys
-                  </TableCell>
-                  <TableCell align="left">No Surveys</TableCell>
-                </TableRow>
-              )}
+                ))}
             </TableBody>
           </Table>
         </TableContainer>

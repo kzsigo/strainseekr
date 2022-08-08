@@ -17,8 +17,6 @@ const ClientList = () => {
   const [open, setOpen] = useState(false);
   const [userID, setUserID] = useState(0);
   const [data, setData] = useState([]);
-  const [resultV1, setResultV1] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -30,15 +28,11 @@ const ClientList = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true);
       const result = await axios.post(`${api}/surveyactive`, despence, config);
       setData(result.data);
-      setIsLoading(false);
     };
     fetchData();
   }, []);
-
-  console.log(resultV1);
 
   return (
     <div className="client-list">

@@ -33,8 +33,12 @@ const KnowResponse = ({ userName, selections }) => {
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell align="left">{select.Strain}</TableCell>
-                  <TableCell align="center">{select.TotalTHC}</TableCell>
-                  <TableCell align="center">{select.TotalCBD}</TableCell>
+                  <TableCell align="center">
+                    {(select.TotalTHC * 100).toFixed(2)}%
+                  </TableCell>
+                  <TableCell align="center">
+                    {(select.TotalCBD * 100).toFixed(2)}%
+                  </TableCell>
                 </TableRow>
               ))}
           </TableBody>

@@ -8,14 +8,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CircularProgress from "@mui/material/CircularProgress";
 
-const StrainType = ({
-  dominance,
-  setDominance,
-  setStrainType,
-  strainType,
-  mostImportant,
-  secondImportant,
-}) => {
+const StrainType = ({ dominance, setStrainType, strainType }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [strainAnswered, setStrainAnswered] = useState(false);

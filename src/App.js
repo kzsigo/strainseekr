@@ -131,6 +131,7 @@ function App() {
               strainType={strainType}
               dominance={dominance}
               setDominance={setDominance}
+              mostImportant={mostImportant}
             />
           }
         />

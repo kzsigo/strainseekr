@@ -1,17 +1,6 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { api, config } from "../../endpoints";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 
 const style = {
   position: "absolute",
@@ -27,6 +16,7 @@ const style = {
 };
 
 const TenderModal = ({ open, handleClose, handleOpen, thisStrainID }) => {
+  console.log(thisStrainID);
   return (
     <div className="divModal">
       <Modal
@@ -57,8 +47,8 @@ const TenderModal = ({ open, handleClose, handleOpen, thisStrainID }) => {
                   <p>Category: {s.Category}</p>
                   <p>Property: {s.Property}</p>
                   <p>Terpene: {s.Terpene}</p>
-                  <p>Percentage: {s.Percentage}</p>
-                  <p>Score: {s.Score}</p>
+                  <p>Percentage: {(s.Percentage * 100).toFixed(2)}%</p>
+                  <p>Score: {s.Score.toFixed(0)}</p>
                 </div>
               ))}
           </div>
