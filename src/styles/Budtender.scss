@@ -59,3 +59,10 @@
   height: 600px;
   margin-bottom: 30px;
 }
+
+.clickableCell {
+  color: #089f86;
+  &:hover {
+    color: #fff;
+  }
+}

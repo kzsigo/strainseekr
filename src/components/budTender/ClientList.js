@@ -21,18 +21,18 @@ const ClientList = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const navigate = useNavigate();
-
-  const despence = {
-    DispensaryID: 1,
-  };
+  const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     const fetchData = async () => {
+      const despence = {
+        DispensaryID: parseInt(user.DispensaryID),
+      };
       const result = await axios.post(`${api}/surveyactive`, despence, config);
       setData(result.data);
     };
     fetchData();
-  }, []);
+  }, [user.DispensaryID]);
 
   return (
     <div className="client-list">
@@ -55,7 +55,7 @@ const ClientList = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data &&
+            {data.length > 0 ? (
               data.map((d, index) => (
                 <TableRow
                   key={index}
@@ -76,7 +76,19 @@ const ClientList = () => {
                     {moment(d.Created).subtract(4, "hours").fromNow()}
                   </TableCell>
                 </TableRow>
-              ))}
+              ))
+            ) : (
+              <TableRow
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                className="tableRow"
+              >
+                <TableCell component="th" scope="row">
+                  No Customer Surveys
+                </TableCell>
+                <TableCell align="right"> No Data</TableCell>
+                <TableCell align="right">No Data</TableCell>
+              </TableRow>
+            )}
           </TableBody>
         </Table>
       </TableContainer>

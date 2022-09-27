@@ -29,8 +29,11 @@ import MoreCBD from "./components/customer/knowChoices/MoreCBD";
 import ClientList from "./components/budTender/ClientList";
 import IndividualClient from "./components/budTender/IndividualClient";
 import KnowResponse from "./components/customer/postRequests/KnowResponse";
+import Login from "./components/auth/Login";
+import Protected from "./components/auth/Protected";
 
 function App() {
+  // If application grows any larger, I recommend REDUX Toolkit for state management
   const [userName, setUserName] = useState("");
   const [mostImportant, setMostImportant] = useState("");
   const [secondImportant, setSecondImportant] = useState("");
@@ -214,24 +217,27 @@ function App() {
 
         {/* --------------------------------------Active Surveys----------------------------------- */}
 
+        <Route exact path="/dispensary/login" element={<Login />} />
         <Route
           exact
-          path="/disp-ID/1/client-list"
+          path="/dispensary/:id/client-list"
           element={
-            <ClientList
-              setStrainType={setStrainType}
-              strainType={strainType}
-              dominance={dominance}
-              setDominance={setDominance}
-              condition={condition}
-              setCondition={setCondition}
-              mostImportant={mostImportant}
-              secondImportant={secondImportant}
-              thirdImportant={thirdImportant}
-              smellChoice={smellChoice}
-              tasteChoice={tasteChoice}
-              userName={userName}
-            />
+            <Protected>
+              <ClientList
+                setStrainType={setStrainType}
+                strainType={strainType}
+                dominance={dominance}
+                setDominance={setDominance}
+                condition={condition}
+                setCondition={setCondition}
+                mostImportant={mostImportant}
+                secondImportant={secondImportant}
+                thirdImportant={thirdImportant}
+                smellChoice={smellChoice}
+                tasteChoice={tasteChoice}
+                userName={userName}
+              />
+            </Protected>
           }
         />
 

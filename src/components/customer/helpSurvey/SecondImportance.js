@@ -35,16 +35,6 @@ const SecondImportance = ({
     }
   };
 
-  const wordsImportant = () => {
-    if (mostImportant === "WeightingProperty") {
-      return "feeling";
-    } else if (mostImportant === "WeightingTaste") {
-      return "taste";
-    } else {
-      return "smell";
-    }
-  };
-
   return (
     <div className="main-survey">
       <h3

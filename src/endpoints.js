@@ -1,4 +1,6 @@
 export const api = "https://strainseekr.prestoapi.com/api";
+export const URL =
+  "https://strainseekr.prestoapi.com/api/v1_dispensaryusercheck ";
 
 export const config = {
   headers: {

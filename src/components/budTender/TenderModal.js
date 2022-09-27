@@ -38,16 +38,16 @@ const TenderModal = ({ open, handleClose, handleOpen, thisStrainID }) => {
             component="h2"
             style={{ marginBottom: "20px" }}
           >
-            Elements for Strain {}
+            Elements for Strain
           </Typography>
           <div className="funModal">
             {thisStrainID &&
               thisStrainID.map((s, index) => (
                 <div className="elemenetDiv" key={index}>
-                  <p>Category: {s.Category}</p>
+                  {/* <p>Category: {s.Category}</p> */}
                   <p>Property: {s.Property}</p>
-                  <p>Terpene: {s.Terpene}</p>
-                  <p>Percentage: {(s.Percentage * 100).toFixed(2)}%</p>
+                  {/* <p>Terpene: {s.Terpene}</p> */}
+                  {/* <p>Percentage: {(s.Percentage * 100).toFixed(2)}%</p> */}
                   <p>Score: {s.Score.toFixed(0)}</p>
                 </div>
               ))}

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-   "@emotion/react": "^11.9.3",
+    "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.9.2",
@@ -45,5 +45,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kzsigo/strainseekr.git"
+  },
+  "author": "Shawn-Patrick Bland",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kzsigo/strainseekr/issues"
+  },
+  "homepage": "https://github.com/kzsigo/strainseekr#readme"
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { api, config } from "../../../endpoints";
 import Alert from "@mui/material/Alert";
@@ -17,11 +17,10 @@ const SurveyPost = ({
   thcLevels,
   cbdLevels,
 }) => {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [strainAnswered, setStrainAnswered] = useState(false);
   const [success, setSuccess] = useState(false);
   const [surveyNumber, setsurveyNumber] = useState("");
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const choiceDataScoring = (choices) => {
     if (
@@ -101,15 +100,8 @@ const SurveyPost = ({
     SmellID: returnNan(smellChoice),
     TasteID: returnNan(tasteChoice),
     ExcludedTerpenes: "",
-    DispensaryID: 1,
+    DispensaryID: parseInt(user.DispensaryID),
   };
-
-  console.log(surveyData);
-  console.log(
-    choiceDataScoring("WeightingProperty"),
-    choiceDataScoring("WeightingTaste"),
-    choiceDataScoring("WeightingSmell")
-  );
 
   const handleAPI = () => {
     axios

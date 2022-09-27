@@ -13,27 +13,28 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Switch from "@mui/material/Switch";
 import TenderModal from "./TenderModal";
 
 const IndividualClient = () => {
   let { searchId } = useParams();
   const [data, setData] = useState([]);
   const [open, setOpen] = React.useState(false);
+  const [thisStrainID, setThisStrainID] = useState([]);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const user = JSON.parse(localStorage.getItem("user"));
 
-  const [thisStrainID, setThisStrainID] = useState([]);
-
-  const pushSearch = {
-    SearchID: searchId,
-    maxRows: 25,
+  const fetchData = async () => {
+    const pushSearch = {
+      SearchID: searchId,
+      maxRows: 25,
+    };
+    const result = await axios.post(`${api}/V2_Search `, pushSearch, config);
+    setData(result.data);
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios.post(`${api}/v1_search `, pushSearch, config);
-      setData(result.data);
-    };
     fetchData();
   }, []);
 
@@ -57,7 +58,7 @@ const IndividualClient = () => {
           Recommended User Strains
         </Typography>
         <div className="budTendView" style={{ margin: "40px 0" }}>
-          <Link to="/disp-ID/1/client-list">
+          <Link to={`/dispensary/${user.DispensaryID}/client-list`}>
             <Button aria-label="delete" className="iconBTN">
               <ArrowBackIcon /> Back to Clients
             </Button>
@@ -67,6 +68,7 @@ const IndividualClient = () => {
           <Table sx={{ minWidth: 200 }} aria-label="simple table">
             <TableHead>
               <TableRow>
+                <TableCell align="left">In Stock</TableCell>
                 <TableCell align="left">id</TableCell>
                 <TableCell align="left">Strain</TableCell>
                 <TableCell align="left">Score</TableCell>
@@ -79,26 +81,60 @@ const IndividualClient = () => {
                     key={index}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     className="tableRow"
-                    onClick={(props) => {
-                      axios
-                        .post(
-                          `${api}/v1_scoreanalysis `,
-                          { SearchID: searchId, StrainID: p.StrainID },
-                          config
-                        )
-                        .then((response) => {
-                          setThisStrainID(response.data);
-                        })
-                        .catch((error) => {
-                          console.error({ errorMessage: error.message });
-                        });
-                      handleOpen();
-                    }}
                   >
+                    <TableCell component="th" scope="row">
+                      <Switch
+                        color="success"
+                        checked={p.InStock === 1 ? true : false}
+                        onChange={(event) => {
+                          axios
+                            .post(
+                              `https://strainseekr.prestoapi.com/api/v1_straindispensarystock`,
+                              {
+                                StrainID: p.StrainID,
+                                DispensaryID: parseInt(user.DispensaryID),
+                                Stock: event.target.checked ? 1 : 0,
+                              },
+                              config
+                            )
+                            .then(() => {
+                              fetchData();
+                            })
+                            .catch((error) => {
+                              console.error({ errorMessage: error.message });
+                            });
+                        }}
+                        name="inStock"
+                      />
+                    </TableCell>
                     <TableCell component="th" scope="row">
                       {p.StrainID}
                     </TableCell>
-                    <TableCell component="th" scope="row">
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      className="clickableCell"
+                      onClick={(props) => {
+                        axios
+                          .post(
+                            `${api}/V2_ScoreAnalysis `,
+                            {
+                              SearchID: searchId,
+                              StrainID: p.StrainID,
+                              ViewID: 1,
+                            },
+                            config
+                          )
+                          .then((response) => {
+                            setThisStrainID(response.data);
+                            console.log(response.data);
+                          })
+                          .catch((error) => {
+                            console.error({ errorMessage: error.message });
+                          });
+                        handleOpen();
+                      }}
+                    >
                       {p.Strain}
                     </TableCell>
                     <TableCell align="left">

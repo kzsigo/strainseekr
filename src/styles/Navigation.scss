@@ -4,10 +4,17 @@
   align-items: center;
   justify-content: center;
   padding: 10px 0;
+  position: relative;
   .logoDiv {
     width: 180px;
     img {
       width: 100%;
     }
   }
+}
+
+.float-left {
+  position: absolute;
+  right: 0;
+  top: 10px;
 }

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { api, config } from "../../../endpoints";
-import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 
 const KnowPost = ({
@@ -16,31 +15,7 @@ const KnowPost = ({
   selections,
   setSelections,
 }) => {
-  const [success, setSuccess] = useState(false);
-
   const navigate = useNavigate();
-
-  const returnNan = (selectionNaN) => {
-    if (Number.isNaN(parseInt(selectionNaN))) {
-      return 0;
-    } else {
-      return parseInt(selectionNaN);
-    }
-  };
-
-  console.log({
-    DispensaryID: 1,
-    MaxRows: 5,
-    DominancePreference: dominance.DominanceID,
-    L1_TerpeneID: terpene,
-    L1_CannabinoidID: cannabinoid,
-    L1_TasteID: tasteChoice,
-    L1_SmellID: smellChoice,
-    L2_TerpeneID: 0,
-    L2_CannabinoidID: 0,
-    L2_TasteID: 0,
-    L2_SmellID: 0,
-  });
 
   const knowData = {
     DispensaryID: 1,
@@ -69,8 +44,6 @@ const KnowPost = ({
     navigate(`/results`, { replace: true });
   };
 
-  console.log(selections);
-
   return (
     <div
       style={{
@@ -80,11 +53,6 @@ const KnowPost = ({
         justifyContent: "center",
       }}
     >
-      {success ? (
-        <Alert severity="success">Your submission was successful!</Alert>
-      ) : (
-        ""
-      )}
       <div
         className="post-text"
         style={{

@@ -11,12 +11,18 @@ import CircularProgress from "@mui/material/CircularProgress";
 const StrainType = ({ dominance, setStrainType, strainType }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [strainAnswered, setStrainAnswered] = useState(false);
+  const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const result = await axios(`${api}/straintype`, config);
+      const result = await axios.post(
+        `${api}/V1_StrainType`,
+        {
+          DispensaryID: user.DispensaryID,
+        },
+        config
+      );
 
       setData(result.data);
       setIsLoading(false);
@@ -24,6 +30,8 @@ const StrainType = ({ dominance, setStrainType, strainType }) => {
 
     fetchData();
   }, []);
+
+  console.log(data);
 
   const finalLinks = () => {
     if (dominance.DominanceID === 1) {
@@ -57,7 +65,6 @@ const StrainType = ({ dominance, setStrainType, strainType }) => {
                   className="answers"
                   onClick={() => {
                     setStrainType(strain);
-                    setStrainAnswered(true);
                   }}
                   style={
                     strain.StrainTypeID === strainType.StrainTypeID

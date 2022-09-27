@@ -34,10 +34,6 @@ const NeedChoices = ({
     fetchData();
   }, []);
 
-  const searchTerm = (keyword) => (need) => {
-    need.Condition.toLowerCase().includes(keyword);
-  };
-
   const completeFunction = () => {
     if (mostImportant === "WeightingProperty") {
       return "/question-two";

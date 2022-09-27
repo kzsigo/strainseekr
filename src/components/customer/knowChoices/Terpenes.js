@@ -14,11 +14,18 @@ import { Link } from "react-router-dom";
 const Terpenes = ({ setTerpene, terpene }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     const fetchTerpenes = async () => {
       setIsLoading(true);
-      const result = await axios(`${api}/terpene`, config);
+      const result = await axios.post(
+        `${api}/V1_Terpene`,
+        {
+          DispensaryID: user.DispensaryID,
+        },
+        config
+      );
 
       setData(result.data);
       setIsLoading(false);
