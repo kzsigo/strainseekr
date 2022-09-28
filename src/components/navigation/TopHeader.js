@@ -1,16 +1,16 @@
 import React from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../images/logo.png";
 import Zoom from "react-reveal/Zoom";
 import IconButton from "@mui/material/IconButton";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import { URL } from "../../endpoints";
 
 const TopHeader = () => {
   const user = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.clear();
-    <Navigate to="/dispensary/login" replace />;
+    navigate("/dispensary/login");
   };
   return (
     <div className="header">

@@ -32,7 +32,7 @@ const Terpenes = ({ setTerpene, terpene }) => {
     };
 
     fetchTerpenes();
-  }, []);
+  }, [user.DispensaryID]);
   console.log(data);
   return (
     <div>

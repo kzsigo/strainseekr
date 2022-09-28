@@ -29,9 +29,7 @@ const StrainType = ({ dominance, setStrainType, strainType }) => {
     };
 
     fetchData();
-  }, []);
-
-  console.log(data);
+  }, [user.DispensaryID]);
 
   const finalLinks = () => {
     if (dominance.DominanceID === 1) {
@@ -42,8 +40,6 @@ const StrainType = ({ dominance, setStrainType, strainType }) => {
       return "/know-post";
     }
   };
-
-  console.log(data);
 
   return (
     <div className="main-survey">
