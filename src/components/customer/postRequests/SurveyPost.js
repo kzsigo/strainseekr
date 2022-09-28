@@ -20,7 +20,6 @@ const SurveyPost = ({
   const [strainAnswered, setStrainAnswered] = useState(false);
   const [success, setSuccess] = useState(false);
   const [surveyNumber, setsurveyNumber] = useState("");
-  const user = JSON.parse(localStorage.getItem("user"));
 
   const choiceDataScoring = (choices) => {
     if (
@@ -100,7 +99,7 @@ const SurveyPost = ({
     SmellID: returnNan(smellChoice),
     TasteID: returnNan(tasteChoice),
     ExcludedTerpenes: "",
-    DispensaryID: parseInt(user.DispensaryID),
+    DispensaryID: 2,
   };
 
   const handleAPI = () => {

@@ -16,15 +16,13 @@ const Login = () => {
   const fetchData = () => {
     const auth = { username: loginName, password: loginPassword };
     try {
-      return axios
-        .post(URL, auth)
-        .then((response) => {
-          if (response.data[0]) {
-            localStorage.setItem("user", JSON.stringify(response.data[0]));
-          }
-          return response.data;
-        })
-        .then(() => navigate(`/dispensary/${user.DispensaryID}/client-list`));
+      return axios.post(URL, auth).then((response) => {
+        if (response.data[0] !== null) {
+          localStorage.setItem("user", JSON.stringify(response.data[0]));
+          navigate(`/dispensary/${response.data[0].DispensaryID}/client-list`);
+        }
+        return response.data;
+      });
     } catch (error) {
       setErrorMessage(true);
       console.log(error);
@@ -37,7 +35,7 @@ const Login = () => {
         <h3>Login</h3>
         {errorMessage ? (
           <Alert variant="filled" severity="error">
-            Your credentials were authorized!! Please try again!
+            Your credentials were not authorized!! Please try again!
           </Alert>
         ) : (
           ""
@@ -48,7 +46,7 @@ const Login = () => {
             type="text"
             label="Username"
             variant="outlined"
-            autoCorrect="username"
+            autoComplete="username"
           />
           <TextField
             onChange={(e) => setLoginPassword(e.target.value)}

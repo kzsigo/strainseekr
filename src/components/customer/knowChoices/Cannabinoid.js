@@ -26,7 +26,7 @@ const Cannabinoid = ({ cannabinoid, setCannabinoid }) => {
 
     fetchCannabinoid();
   }, []);
-  console.log(cannabinoid);
+
   return (
     <div>
       <div

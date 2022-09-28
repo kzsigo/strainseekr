@@ -18,7 +18,7 @@ const KnowPost = ({
   const navigate = useNavigate();
 
   const knowData = {
-    DispensaryID: 1,
+    DispensaryID: 2,
     MaxRows: 25,
     DominancePreference: dominance.DominanceID,
     L1_TerpeneID: terpene,

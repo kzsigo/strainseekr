@@ -19,7 +19,7 @@ const StrainType = ({ dominance, setStrainType, strainType }) => {
       const result = await axios.post(
         `${api}/V1_StrainType`,
         {
-          DispensaryID: user.DispensaryID,
+          DispensaryID: 2,
         },
         config
       );
