@@ -29,7 +29,7 @@ const StrainType = ({ dominance, setStrainType, strainType }) => {
     };
 
     fetchData();
-  }, [user.DispensaryID]);
+  }, []);
 
   const finalLinks = () => {
     if (dominance.DominanceID === 1) {
