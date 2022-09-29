@@ -44,7 +44,6 @@
   align-items: flex-start;
   justify-content: center;
   gap: 20px;
-  border-top: 2px solid grey !important;
 
   .elementDiv {
     border: 2px solid #d5d5d5;
@@ -58,6 +57,34 @@
   overflow: scroll;
   height: 600px;
   margin-bottom: 30px;
+  width: 400px !important;
+}
+
+.headDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #b86f52;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 10px 10px 10px 0px;
+  .scoreTotal {
+    background-color: #089f86;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    p {
+      margin: 0;
+    }
+  }
 }
 
 .clickableCell {

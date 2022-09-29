@@ -21,6 +21,8 @@ const IndividualClient = () => {
   const [data, setData] = useState([]);
   const [open, setOpen] = React.useState(false);
   const [thisStrainID, setThisStrainID] = useState([]);
+  const [thisStrainIDs, setThisStrainIDs] = useState([]);
+  const [score, setScore] = useState(0);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const user = JSON.parse(localStorage.getItem("user"));
@@ -44,9 +46,11 @@ const IndividualClient = () => {
     <div>
       <TenderModal
         thisStrainID={thisStrainID}
+        thisStrainIDs={thisStrainIDs}
         open={open}
         handleClose={handleClose}
         handleOpen={handleOpen}
+        score={score}
       />
       <div>
         <Typography
@@ -121,7 +125,7 @@ const IndividualClient = () => {
                             {
                               SearchID: searchId,
                               StrainID: p.StrainID,
-                              ViewID: 1,
+                              ViewID: 2,
                             },
                             config
                           )
@@ -132,6 +136,24 @@ const IndividualClient = () => {
                           .catch((error) => {
                             console.error({ errorMessage: error.message });
                           });
+                        axios
+                          .post(
+                            `${api}/V2_ScoreAnalysis `,
+                            {
+                              SearchID: searchId,
+                              StrainID: p.StrainID,
+                              ViewID: 1,
+                            },
+                            config
+                          )
+                          .then((response) => {
+                            setThisStrainIDs(response.data);
+                            console.log(response.data);
+                          })
+                          .catch((error) => {
+                            console.error({ errorMessage: error.message });
+                          });
+                        setScore(p.StrainScore.toFixed(0));
                         handleOpen();
                       }}
                     >
