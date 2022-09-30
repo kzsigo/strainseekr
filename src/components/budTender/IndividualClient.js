@@ -23,8 +23,10 @@ const IndividualClient = () => {
   const [thisStrainID, setThisStrainID] = useState([]);
   const [thisStrainIDs, setThisStrainIDs] = useState([]);
   const [score, setScore] = useState(0);
+  const [scoreRating, setScoreRating] = useState(0);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
   const user = JSON.parse(localStorage.getItem("user"));
 
   const fetchData = async () => {
@@ -73,7 +75,7 @@ const IndividualClient = () => {
             <TableHead>
               <TableRow>
                 <TableCell align="left">In Stock</TableCell>
-                <TableCell align="left">id</TableCell>
+                <TableCell align="left">Ranking</TableCell>
                 <TableCell align="left">Strain</TableCell>
                 <TableCell align="left">Score</TableCell>
               </TableRow>
@@ -112,7 +114,7 @@ const IndividualClient = () => {
                       />
                     </TableCell>
                     <TableCell component="th" scope="row">
-                      {p.StrainID}
+                      {index + 1}
                     </TableCell>
                     <TableCell
                       component="th"
