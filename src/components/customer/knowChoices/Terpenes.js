@@ -22,7 +22,7 @@ const Terpenes = ({ setTerpene, terpene }) => {
       const result = await axios.post(
         `${api}/V1_Terpene`,
         {
-          DispensaryID: user.DispensaryID,
+          DispensaryID: 2,
         },
         config
       );
@@ -32,8 +32,8 @@ const Terpenes = ({ setTerpene, terpene }) => {
     };
 
     fetchTerpenes();
-  }, [user.DispensaryID]);
-  console.log(data);
+  }, []);
+
   return (
     <div>
       <div
